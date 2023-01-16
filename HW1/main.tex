@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{CSCI-163 Theory of Algorithms HW1}
+\author{Tushar Shrivastav}
+\date{January 23, 2023}
+
+\begin{document}
+\maketitle
+
+\section{Problem 1}
+\textbf{Problem:} 
+Suppose we have an algorithm with the number of basic operations C(n) = 2n,
+where n is the input size. In the year 2000, we run this program with an input size of
+n = 10, and in the year 2020, our input size grows to 50. Imagine that computer pro-
+cessing speeds roughly double every two years. Which one of the following is correct?
+Explain your answer by showing your work.
+
+A. The program will run much faster in 2020 with n = 50 compared to the year 2000
+with n = 10 because of the increase in processing speed.
+
+B. The program will take much longer in 2020 with n = 50 even though computers
+are faster.
+
+C. The running time of the program will be approximately the same in both years.
+
+\textbf{Solution:}
+The correct answer is B. The program will take much longer in 2020 with n = 50 even though computers are faster. Since the computer processing speeds increase roughly double every two years, this means a computer in 2020 will be 1024 times faster than a computer in 2000. Using the following equation we can calculate the running time of the two computers for the same algorithm and respective input sizes.
+
+\begin{equation}
+    T(n) = t_{op} \cdot C(n)
+\end{equation}
+
+Let us assume for the year 2000: \[t_{op} = 1 ms\] 
+
+Then for  \[2000: T(n) = 1 \cdot 2^10 = 1024\] and for \[2020: T(n) = 1/1024 \cdot 2^50 \approx 1.0995 \cdot 10^{12}\]
+
+Thus, running time for 2020 is much greater regardless of the increase in processing speed.
+
+\section{Problem 2}
+\textbf{Problem:} List the following functions according to their order of growth from the lowest
+to the highest. Show your work using limits for comparing orders of growth.
+\[n^6 +5n +1, log_2(n^3), \sqrt{3}{n} + 10\]
+\textbf{Solution: }
+We can calculate 3 limits to tell us the order of growth from lowest to highest.
+\[ \lim_{n\to\infty} \frac{log_2(n^3)}{n^6+5n^5+1} = \lim_{n\to\infty} \frac{3}{ln(2)\cdot n \cdot (6n^5 +25n^4)} = \frac{1}{\infty} = 0\]
+\[ \lim_{x\to\infty} \frac{\sqrt{3}{n}+10}{n^6+5n^5+1} = \lim_{n\to\infty} \frac{1}{3n^{\frac{2}{3}}(6n^5 +25n^4)} = \frac{1}{\infty} = 0 \]
+\[ \lim_{x\to\infty} \frac{log_2(n^3)}{\sqrt{3}{n}+10} = \lim_{n\to\infty} \frac{ln(2)\cdot n}{9n^{\frac{2}{3}}} = \lim_{n\to\infty} n^{\frac{1}{3}} = \infty\]
+
+Thus, Lowest to Highest order of growth is: \[log_2(n^3) \to \sqrt{3}{n} + 10 \to n^6 +5n +1\]
+\end{document}
